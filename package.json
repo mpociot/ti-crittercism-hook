@@ -1,0 +1,32 @@
+
+{
+  "name": "ti-crittercism-hook",
+  "version": "0.1.0",
+  "description": "ti cli hook to automatically upload dSYM files to crittercism",
+  "scripts": {
+    "postinstall": "node bin/install"
+  },
+  "bin": {
+    "ti-crittercism-hook": "./bin/install"
+  },
+  "keywords": [
+    "titanium",
+    "cli",
+    "appcelerator",
+    "hook",
+    "crittercism",
+    "dsym"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mpociot/ti-crittercism-hook.git"
+  },
+  "author": "Marcel Pociot <m.pociot@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.5.2",
+    "form-data": "~0.1.2",
+    "node-appc": "~0.2.0",
+    "archiver": "~0.6.1"
+  }
+}
