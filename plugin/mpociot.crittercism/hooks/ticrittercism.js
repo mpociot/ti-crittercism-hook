@@ -41,7 +41,7 @@ function configure(data,finished) {
     logger.error("crittercism.api_key is missing.");
     return;
   }
-  
+
   finished();
 }
 
@@ -67,7 +67,7 @@ function doCrittercism(data, finished) {
       });
       archive.on('error', function(err) { throw err; });
       archive.pipe(output);
-      archive.bulk([{expand:true, cwd: dsym_path, src:['**']}]);
+      archive.directory(dsym_path, data.buildManifest.name + ".app.dSYM" );
       archive.finalize();
     } else {
       logger.info( "No dSYM file available. Skipping upload" );
@@ -78,7 +78,7 @@ function doCrittercism(data, finished) {
 };
 
 function submit(form, callback) {
-  var API_ENDPOINT = "https://api.crittercism.com/api_beta/dsym/" + config.api_key;
+  var API_ENDPOINT = "https://api.crittercism.com/api_beta/dsym/" + config.app_id;
   logger.info("Uploading dSYM to " + API_ENDPOINT);
   form.submit( API_ENDPOINT , function(err, res) {
     if (err) {
