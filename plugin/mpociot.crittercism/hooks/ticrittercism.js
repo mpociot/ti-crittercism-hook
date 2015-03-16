@@ -41,6 +41,8 @@ function configure(data,finished) {
     logger.error("crittercism.api_key is missing.");
     return;
   }
+  
+  finished();
 }
 
 function doCrittercism(data, finished) {
