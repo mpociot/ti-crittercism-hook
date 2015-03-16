@@ -33,11 +33,12 @@ function configure(data,finished) {
   keys.forEach(function(k) {
     config[k.replace(/^crittercism\./,'')] = data.tiapp.properties[k].value;
   });
-  if (config.app_id === undefined) {
+  var isOptional = config.optional || true;
+  if (config.app_id === undefined && !isOptional) {
     logger.error("crittercism.app_id is missing.");
     return;
   }
-  if (config.api_key === undefined) {
+  if (config.api_key === undefined && !isOptional) {
     logger.error("crittercism.api_key is missing.");
     return;
   }
